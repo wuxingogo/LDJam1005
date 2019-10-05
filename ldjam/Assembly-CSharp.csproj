@@ -53,7 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_Platerformer_Level_Kit\MoveCam.cs" />
      <Compile Include="Assets\CorgiEngine\Common\Scripts\Achievements\AchievementRules.cs" />
      <Compile Include="Assets\CorgiEngine\Common\Scripts\Agents\AI\Advanced\AIActionChangeWeapon.cs" />
      <Compile Include="Assets\CorgiEngine\Common\Scripts\Agents\AI\Advanced\AIActionDoNothing.cs" />
