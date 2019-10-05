@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 00000000000000000000000000000000
+  productGUID: 65e5c9a4eb5f4824d916fe785e3d36e6
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -653,7 +653,7 @@ PlayerSettings:
   scriptingBackend:
     Android: 0
     Metro: 2
-    Standalone: 0
+    Standalone: 1
     WP8: 2
     WebGL: 1
     iOS: 1
