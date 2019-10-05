@@ -4,42 +4,30 @@ using MoreMountains.Tools;
 using System.Collections.Generic;
 using MoreMountains.InventoryEngine;
 using UnityEngine.SceneManagement;
+using wuxingogo.tools;
 
 namespace MoreMountains.CorgiEngine
 {	
-	[System.Serializable]
-	/// <summary>
-	/// A serializable entity to store retro adventure scenes, whether they've been completed, unlocked, how many stars were collected, and which ones
-	/// </summary>
-	public class RetroAdventureScene
-	{
-		public string SceneName;
-		public bool LevelComplete = false;
-		public bool LevelUnlocked = false;
-		public int MaxStars;
-		public bool[] CollectedStars;
-	}
-
-	[System.Serializable]
-	/// <summary>
-	/// A serializable entity used to store progress : a list of scenes with their internal status (see above), how many lives are left, and how much we can have
-	/// </summary>
-	public class Progress
-	{
-		public int InitialMaximumLives = 0;
-		public int InitialCurrentLives = 0;
-		public int MaximumLives = 0;
-		public int CurrentLives = 0;
-		public RetroAdventureScene[] Scenes;
-	}
+	
 
 	/// <summary>
 	/// The RetroAdventureProgressManager class acts as an example of how you can implement progress in your game.
 	/// There's no general class for that in the engine, for the simple reason that no two games will want to save the exact same things.
 	/// But this should show you how it's done, and you can then copy and paste that into your own class (or extend this one, whatever you prefer).
 	/// </summary>
-	public class RetroAdventureProgressManager : Singleton<RetroAdventureProgressManager>, MMEventListener<CorgiEngineStarEvent>, MMEventListener<CorgiEngineEvent>
+	public class RetroAdventureProgressManager : SingletonC<RetroAdventureProgressManager>, MMEventListener<CorgiEngineStarEvent>, MMEventListener<CorgiEngineEvent>
 	{
+		public static RetroAdventureProgressManager Instance
+		{
+			get { return Inst; }
+		}
+
+		protected override HideFlags gameObjectFlags
+		{
+			get{
+				return HideFlags.DontSave;
+				}
+		}
 		public int InitialMaximumLives { get; set; }
 		public int InitialCurrentLives { get; set; }
 
