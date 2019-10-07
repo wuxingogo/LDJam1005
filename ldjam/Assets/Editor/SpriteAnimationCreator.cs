@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using wuxingogo.Editor;
 
 public class SpriteAnimationCreator : XBaseWindow
@@ -57,7 +58,8 @@ public class SpriteAnimationCreator : XBaseWindow
         CreateSpaceBox();
 
         DoButton(path, OnChangePath);
-        DoButton("Create", OnCreate);
+        DoButton("Create Sprite Animation", OnCreateSpriteAnimation);
+        DoButton("Create Image Animation", OnCreateImageAnimation);
     }
     public void InitPath(){
         path = SelectionUtils.GetAssetFolder( Selection.objects[0] ) + "/" + Selection.activeObject.name + ".anim";
@@ -69,11 +71,36 @@ public class SpriteAnimationCreator : XBaseWindow
         
         XLogger.Log("path : " + path);
     }
-    public void OnCreate(){
+    public void OnCreateSpriteAnimation(){
         AnimationClip animClip = new AnimationClip();
         animClip.frameRate = 25;   // FPS
         EditorCurveBinding spriteBinding = new EditorCurveBinding();
         spriteBinding.type = typeof(SpriteRenderer);
+        spriteBinding.path = "";
+        spriteBinding.propertyName = "m_Sprite"; 
+        ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[totalSprite.Count];
+        for(int i = 0; i < (totalSprite.Count); i++) {
+            spriteKeyFrames[i] = new ObjectReferenceKeyframe();
+            spriteKeyFrames[i].time = i * delta;
+            spriteKeyFrames[i].value = totalSprite[i];
+        }
+        AnimationUtility.SetObjectReferenceCurve(animClip, spriteBinding, spriteKeyFrames);
+
+        if(path != null){
+            //path = FileUtil.GetProjectRelativePath(path);
+            XLogger.Log("File Path : " + path);
+            AssetDatabase.CreateAsset(animClip, path);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        Close();
+    }
+    
+    public void OnCreateImageAnimation(){
+        AnimationClip animClip = new AnimationClip();
+        animClip.frameRate = 25;   // FPS
+        EditorCurveBinding spriteBinding = new EditorCurveBinding();
+        spriteBinding.type = typeof(Image);
         spriteBinding.path = "";
         spriteBinding.propertyName = "m_Sprite"; 
         ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[totalSprite.Count];

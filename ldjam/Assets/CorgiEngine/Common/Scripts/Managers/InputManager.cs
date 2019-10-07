@@ -104,6 +104,8 @@ namespace MoreMountains.CorgiEngine
         public MMInput.IMButton SwitchWeaponButton { get; protected set; }
         /// the time control button
         public MMInput.IMButton TimeControlButton { get; protected set; }
+        
+        public MMInput.IMButton ChangeAbilityButton { get; protected set; }
         /// the shoot axis, used as a button (non analogic)
         public MMInput.ButtonStates ShootAxis { get; protected set; }
         /// the shoot axis, used as a button (non analogic)
@@ -188,6 +190,7 @@ namespace MoreMountains.CorgiEngine
             ButtonList.Add(PushButton = new MMInput.IMButton(PlayerID, "Push", PushButtonDown, PushButtonPressed, PushButtonUp));
             ButtonList.Add(SwitchCharacterButton = new MMInput.IMButton(PlayerID, "SwitchCharacter", SwitchCharacterButtonDown, SwitchCharacterButtonPressed, SwitchCharacterButtonUp));
             ButtonList.Add(TimeControlButton = new MMInput.IMButton(PlayerID, "TimeControl", TimeControlButtonDown, TimeControlButtonPressed, TimeControlButtonUp));
+            ButtonList.Add(ChangeAbilityButton = new MMInput.IMButton(PlayerID, "ChangeAbility", ChangeAbilityButtonButtonDown, ChangeAbilityButtonButtonPressed, ChangeAbilityButtonButtonUp));
         }
 
 		/// <summary>
@@ -466,6 +469,10 @@ namespace MoreMountains.CorgiEngine
         public virtual void TimeControlButtonDown()         { TimeControlButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
         public virtual void TimeControlButtonPressed()      { TimeControlButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
         public virtual void TimeControlButtonUp()           { TimeControlButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+        
+        public virtual void ChangeAbilityButtonButtonDown()         { ChangeAbilityButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
+        public virtual void ChangeAbilityButtonButtonPressed()      { ChangeAbilityButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
+        public virtual void ChangeAbilityButtonButtonUp()           { ChangeAbilityButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
     }
 }

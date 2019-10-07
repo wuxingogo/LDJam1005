@@ -117,7 +117,8 @@ GameObject:
   - component: {fileID: 114000012928647790}
   - component: {fileID: 114000013904231896}
   - component: {fileID: 114000013042182620}
-  - component: {fileID: 5804022059555183873}
+  - component: {fileID: 6094603305489174007}
+  - component: {fileID: 3253586399344128682}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -164,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48, y: 1.09}
+  m_Size: {x: 0.48, y: 0.91}
   m_EdgeRadius: 0
 --- !u!50 &5023858
 Rigidbody2D:
@@ -388,7 +389,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127094}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51d7707613113491a9d85f1caab5837b, type: 3}
   m_Name: 
@@ -445,7 +446,7 @@ MonoBehaviour:
   RespawnAtInitialLocation: 0
   DeathForce: {x: 0, y: 10}
   ResetForcesOnDeath: 0
---- !u!114 &5804022059555183873
+--- !u!114 &6094603305489174007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -454,14 +455,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 127094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fd71e945bfcd4897b3a95607989c7d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 74ed977505c7d8748b1e732aa13d9acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityStartSfx: {fileID: 0}
   AbilityInProgressSfx: {fileID: 0}
   AbilityStopSfx: {fileID: 0}
   AbilityPermitted: 1
-  RunSpeed: 16
+  jumpCom: {fileID: 114000011206318892}
+  runCom: {fileID: 114000010655697334}
+  clingingCom: {fileID: 114000012928647790}
+  currentAbility: 0
+  maxAbility: 0
+--- !u!114 &3253586399344128682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6acc45a765d864ba3d69b6c84471f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityPermitted: 1
+  InWater: 0
+  SwimHeight: 3.025
+  SwimAnimationDuration: 0.8
+  WaterEntryEffect: {fileID: 0}
+  WaterExitEffect: {fileID: 0}
+  WaterExitForce: {x: 0, y: 12}
 --- !u!1 &1000012133286550
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +589,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 168cab1e116bd4de2b235cfc1d3ace99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -584,7 +611,7 @@ Animator:
   m_GameObject: {fileID: 2462350686861481997}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9431c710b53b4664f83ece6fcb6a4c89, type: 2}
+  m_Controller: {fileID: 9100000, guid: ca2096d89dbb80d418eab62b37e56c67, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

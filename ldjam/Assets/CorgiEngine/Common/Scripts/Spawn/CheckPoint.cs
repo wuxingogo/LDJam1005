@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
+using wuxingogo.Runtime;
 
 namespace MoreMountains.CorgiEngine
 {	
@@ -10,7 +11,7 @@ namespace MoreMountains.CorgiEngine
 	/// </summary>
 	[RequireComponent(typeof(BoxCollider2D))]
 	[AddComponentMenu("Corgi Engine/Spawn/Checkpoint")]
-	public class CheckPoint : MonoBehaviour 
+	public class CheckPoint : XMonoBehaviour 
 	{
 		[Header("Spawn")]
 		[Information("Add this script to a (preferrably empty) GameObject and it'll be added to the level's checkpoint list, allowing you to respawn from there. If you bind it to the LevelManager's starting point, that's where your character will spawn at the start of the level. And here you can decide whether the character should spawn facing left or right.",InformationAttribute.InformationType.Info,false)]
@@ -95,6 +96,15 @@ namespace MoreMountains.CorgiEngine
 				}
 			}
 			#endif
+		}
+		[X]
+		public void SyncPos()
+		{
+			var players = LevelManager.Instance.Players;
+			for (int i = 0; i < players.Count; i++)
+			{
+				players[i].transform.position = transform.position;
+			}
 		}
 	}
 }

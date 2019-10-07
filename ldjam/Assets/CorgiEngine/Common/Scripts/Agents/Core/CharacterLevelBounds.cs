@@ -27,7 +27,13 @@ namespace MoreMountains.CorgiEngine
 		/// what to do to the player when it reaches the right level bound
 		public BoundsBehavior Right = BoundsBehavior.Constrain;
 
-	    protected Bounds _bounds;
+		protected Bounds _bounds
+		{
+			get
+			{
+				return LevelManager.Instance.LevelBounds;
+			}
+		}
 	    protected CorgiController _controller;
 		protected Character _character;
 	    protected BoxCollider2D _boxCollider;
@@ -43,7 +49,7 @@ namespace MoreMountains.CorgiEngine
 			_boxCollider = GetComponent<BoxCollider2D>();
 			if (LevelManager.Instance != null)
 			{
-				_bounds = LevelManager.Instance.LevelBounds;
+
 			}
 		}
 		

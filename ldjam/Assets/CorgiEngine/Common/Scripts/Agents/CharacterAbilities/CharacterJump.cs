@@ -51,7 +51,7 @@ namespace MoreMountains.CorgiEngine
 		public float MovingPlatformsJumpCollisionOffDuration=0.05f;
 
         /// the number of jumps left to the character
-        [ReadOnly]
+        //[ReadOnly]
         public int NumberOfJumpsLeft;
         /// whether or not the jump happened this frame
         public bool JumpHappenedThisFrame { get; set;  }

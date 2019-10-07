@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: twoleg
+  m_Controller: {fileID: 9100000, guid: ca2096d89dbb80d418eab62b37e56c67, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 378f4913c9c9c254f8337ad0166b4b28, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 59a153d7da65c4d4c8971633d96c2df4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a46dc7a30a6d61b4cbe0a7f1b4caf499, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bdb23c3f7b12cb74284722c5b44780b1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 89c27a2029de94448a5f11199ad3786b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4b3cb6156e4586a458ecc565fb6b7a30, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 739b04a8d38e0674b9f43736c49313b1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4b3cb6156e4586a458ecc565fb6b7a30, type: 2}
