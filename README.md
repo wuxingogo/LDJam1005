@@ -2,4 +2,4 @@
 LDJam 10月5号 
 
 
-Add Core Engine to your project.
+Add Corgi Engine to your project.
